@@ -1,0 +1,304 @@
+---
+title: "Nutrient Remineralization by *Ramicrusta*"
+author: "Author: Abigail Gretta"
+date: "Created: October 24, 2024"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ggplot2)
+library(tidyverse)
+library(dplyr)
+library(car)
+library(agricolae)
+library(pander)
+library(multcompView)
+
+```
+
+
+##   {.tabset}
+### Background
+
+&nbsp;
+
+The genus *Ramicrusta* is a red calcifying macroalgal that colonizes any hard substrate, often overgrowing numerous living sessile organisms (Eckrich & Engel, 2013).  Despite its ability to overgrow sponges, gorgonians, and crustose coralline algae, *Ramicrusta* has high interactions with reef-building corals (Edmunds et al., 2019). Coral genera exhibit varying levels of vulnerability to *Ramicrusta* colonization, with *Orbicella* sp. among the worst competitors and experience the highest alga overgrowth rates (Hollister et al., 2021). 
+
+&nbsp; 
+
+
+<p align="center">
+  <img src="C:/Users/Abigail Gretta/Desktop/Rami.png" alt="Fig. 1: R. textilis overgrowing an O. annularis colony (photo: Abigail Gretta).">
+  <br><small><i>Fig. 1: <i>R. textilis</i> overgrowing an <i>O. annularis</i> colony (photo: Abigail Gretta).</i></small>
+</p>
+
+&nbsp; 
+
+Considerable evidence illustrates the tendency of *Ramicrusta* to interact with and overgrow live corals, yet there is a disconnect when it comes to understanding the factors contributing to this relationship. Macroalgal growth is typically nutrient-limited, especially in oligotrophic tropical waters (Amato et al., 2016; Strait et al., 2021). Thus, *Ramicrusta* may be deriving nutrients from the coral itself, fueling these interactions and promoting its own growth.
+
+Bulk stable isotope analyses were used to determine if *Ramicrusta* remineralizes coral nutrients as it overgrows *O. annularis* colonies. Differences in the nutrient profiles of the alga overgrowing live corals (*O. annularis*) versus the alga growing on rocks (control) would suggest remineralization is occurring. 
+
+The following are the preliminary methods, results, and conclusions from a pilot study conducted on September 2, 2024. 
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
+alga <- read.csv("C:/Users/Abigail Gretta/Desktop/Abi's Stuff/MMES/THESIS/Pilot/Pilot2_alga.csv")
+
+rami <- alga %>%
+  na.omit() %>%
+  select(Genus, Code, Growth_Region, Substrate, d13C, d15N, Nper, Cper, C.N) %>%
+  filter(Genus == "Ramicrusta")
+
+rami <- rami %>%
+  mutate(log_d15N = log(d15N))
+```
+
+### Methods
+
+##### Site: 
+
+Sample collection ocurred on the leeward side of Flat Cay, an offshore 9 m depth reef along the southwest side of St. Thomas, U.S. Virgin Islands (Fig. 2). This site was selected because of its high abundance of *R. textilis* (46.0% ± 5.9; Hollister et al., 2021) and high frequency of interactions between the alga and *Orbicella annularis* (personal observation). To characterize the abiotic conditions during algal and coral sampling, a temperature logger (Hobo Pendant) and PAR meter were deployed a month prior to the collection time and retrieved on the final day of sampling. 
+
+##### Alga Collection: 
+
+Open-circuit SCUBA was used for all algal collections. Replicates of each algal  were randomly collected by hand, with a minimum of five meters between samples. *R. textilis* were brushed of epiphytes and chiseled from 10 rocks (control) and 10 *O. annularis* colonies. *O. annularis* colonies that appeared visually healthy  were selected for alga collection. Two *R. textilis* samples were removed from each substrate (n = 20 *R. textilis* per substrate type), one at the margin of algal growth (n = 10) and the other at a linear distance away  (2 to 3 cm) from the margin on the same contiguous algal thallus (n = 10), with distances between samples measured and photographed (Fig. 3). This sampling strategy will distinguish the alga’s nutrient parameters during direct interaction with living coral to those in non-interacting regions, with the rock samples serving as controls for both conditions. Algal replicates were placed in individual plastic bags at depth with ambient seawater. Samples were transported to the laboratory in a dark container to minimize physiological stress and processed immediately. 
+
+![<small>Fig. 3: *R. textilis* were collected from 10 *O. annularis* colonies (left) and 10 rocks (control), with marginal and non-marginal replicates sampled from each substrate type.</small>](C:/Users/Abigail Gretta/Desktop/rami_sample.png)
+Lab Processing: 
+
+Macroalgae were rinsed with deionized water (DI) to remove any external contaminants (i.e., invertebrates and epiphytes) and thoroughly dried with paper towels (Strait et al., 2021). Samples were loosely parceled in combusted aluminum foil with each sample code and dried at 60℃ to constant weight in a drying oven (24-36 hours). With a clean mortar and pestle (ethanol and DI rinse between samples), algae were ground to a fine powder and carefully packaged in 1.5 mL Eppendorf tubes (Strait et al., 2021). Stable isotope analyses were processed by an Elemental Analyzer Delta V at the University of Hawai’i at Mānoa. Dual stable isotope analyses were performed because acidification has the potential to degrade $\delta^{15}$N and unaltering calcified tissue can skew $\delta^{13}$C (Strait & Spalding, 2021). 
+
+
+### Graphs & Analyses
+
+##### Data Analysis:
+
+All data were tested for homogeneity and normality. Log transformations were used when data violated ANOVA assumptions. Tissue nutrients ($\delta^{15}$N, % N, and C:N) were assessed using two-factor ANOVA (factors: Substrate, Growth Region, and the interaction of the two). Tukey's honestly significant difference post hoc test was applied to show pairwise comparisons, with distinct letters on graphs denoting significant differences. 
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE,results = 'hide',include = FALSE}
+
+########################################################################
+
+# d15N analyses:
+
+# Two-way ANOVA comparing d15N to main effects of substrate and growth region
+summary(aov(d15N ~ Substrate*Growth_Region, data = rami))
+leveneTest(d15N ~ Substrate*Growth_Region, data = rami)
+hist(rstandard(aov(d15N ~ Substrate*Growth_Region, data = rami)))
+
+# log transformation was applied for normality 
+rami <- rami %>%
+  mutate(log_d15N = log(d15N))
+
+# analysis with log transformation
+summary(aov(log_d15N ~ Substrate*Growth_Region, data = rami))
+leveneTest(log_d15N ~ Substrate*Growth_Region, data = rami)
+hist(rstandard(aov(log_d15N ~ Substrate*Growth_Region, data = rami)))
+
+# difference found between growth region and substrate with log transformation, 
+# but no difference in interaction effect 
+
+# post hoc results & create sign. diff. letters for plot
+post_hoc_result <- TukeyHSD(aov(log_d15N ~ Substrate*Growth_Region, data = rami))
+print(post_hoc_result)
+print(post_hoc_result$`Substrate:Growth_Region`)
+
+# group and summarize max of d15N. add 0.1 for letter placement 
+summary_data <- rami %>%
+  group_by(Substrate,Growth_Region) %>%
+  summarise(max = max(d15N, na.rm = TRUE)+0.01) %>%
+  ungroup()
+summary_data
+
+# creates letters, uses tukey results with Substrate:Growth with the p-value in 
+# the 4th column 
+exp_letters <- multcompLetters(post_hoc_result$`Substrate:Growth_Region`[, 4])$Letters
+
+# creates a data frame 
+# condition is the name of the assigned letters (levels on Substrate & Growth)
+# groups = assigned letters
+tukey_result <- data.frame(condition = names(exp_letters),
+                           groups = exp_letters)
+# excludes  row names 
+rownames(tukey_result) <- NULL
+tukey_result
+
+# splits conditions, divide condition where : exists, creates space between, 
+# renames the first condition, renames the second condition 
+tukey_result <- tukey_result %>%
+  mutate(Substrate_Growth_Region = str_split(condition, pattern = ":")) %>%
+  unnest_wider(Substrate_Growth_Region, names_sep = "_") %>%
+  rename(Substrate  = Substrate_Growth_Region_1) %>%
+  rename(Growth_Region  = Substrate_Growth_Region_2)
+tukey_result
+
+# joins summarized data with tukey results 
+summary_data <- summary_data |>
+  left_join(tukey_result, by = c("Substrate", "Growth_Region"))
+summary_data
+
+#######################################################################
+
+# %N analyses:
+
+# Two-way ANOVA comparing %N to main effects of substrate and growth region
+summary(aov(Nper ~ Substrate*Growth_Region, data = rami))
+leveneTest(Nper ~ Substrate*Growth_Region, data = rami)
+hist(rstandard(aov(Nper ~ Substrate*Growth_Region, data = rami)))
+shapiro.test(rstandard(aov(Nper ~ Substrate*Growth_Region, data = rami)))
+
+# difference found between growth region, but no difference in substrate 
+# and interaction effect 
+
+# post hoc results & create sign. diff. letters for plot
+post_hoc_result_Nper <- TukeyHSD(aov(Nper ~ Substrate*Growth_Region, data = rami))
+print(post_hoc_result_Nper)
+print(post_hoc_result_Nper$`Substrate:Growth_Region`)
+
+# group and summarize max of d15N. add 0.1 for letter placement 
+summary_dataNper <- rami %>%
+  group_by(Substrate,Growth_Region) %>%
+  summarise(max = max(Nper, na.rm = TRUE)+0.01) %>%
+  ungroup()
+summary_dataNper
+
+# creates letters, uses tukey results with Substrate:Growth with the p-value in 
+# the 4th column 
+exp_letters_Nper <- multcompLetters(post_hoc_result_Nper$`Substrate:Growth_Region`[, 4])$Letters
+
+# creates a data frame 
+# condition is the name of the assigned letters (levels on Substrate & Growth)
+# groups = assigned letters
+tukey_result_Nper <- data.frame(condition = names(exp_letters_Nper),
+                           groups = exp_letters_Nper)
+# excludes  row names 
+rownames(tukey_result_Nper) <- NULL
+tukey_result_Nper
+
+# splits conditions, divide condition where : exists, creates space between, 
+# renames the first condition, renames the second condition 
+tukey_result_Nper <- tukey_result_Nper %>%
+  mutate(Substrate_Growth_Region = str_split(condition, pattern = ":")) %>%
+  unnest_wider(Substrate_Growth_Region, names_sep = "_") %>%
+  rename(Substrate  = Substrate_Growth_Region_1) %>%
+  rename(Growth_Region  = Substrate_Growth_Region_2)
+tukey_result_Nper
+
+# joins summarized data with tukey results 
+summary_dataNper <- summary_dataNper |>
+  left_join(tukey_result_Nper, by = c("Substrate", "Growth_Region"))
+summary_dataNper
+
+# makes labels for C:N plot 
+C_N_labels <- data.frame(
+  Growth_Region = c("Established", "Apical"),
+  Substrate = c("Bare Rock", "Coral"),
+  y = c(23, 21), 
+  label = c("a", "b"))
+
+```
+
+```{r, echo = FALSE, warning = FALSE}
+# plots d15N for substrate and growth region with letters from tukeys test
+
+new_labels <- c("Bare Rock" = "Control", "Coral" = "italic('O. annularis')")
+
+ggplot() +
+  geom_boxplot(data = rami, aes(x = Growth_Region, y = d15N))+
+  facet_grid(. ~ Substrate, labeller = as_labeller(new_labels, label_parsed))+
+  ylab(expression(paste(delta^{15}, "N (\u2030)"))) + 
+    xlab("Growth Region")+
+  theme_bw()+
+  scale_x_discrete(labels = c("Marginal", "Non-Marginal"))+
+  scale_y_continuous(limits =c(0.5, 3.0), 
+                     expand = c(0,0))+
+  theme(axis.title.x = element_text(size = 13), 
+        axis.text.x = element_text(size = 10), 
+        axis.title.y = element_text(size = 13))+
+  geom_text(data = summary_data, aes(x = Growth_Region, y = max, 
+                                     label = groups, 
+                                     fontface = "bold"),
+            vjust = -4.5,
+            position = position_dodge(.9))
+```
+
+
+```{r, echo = FALSE}
+
+pander(summary(aov(log_d15N ~ Substrate*Growth_Region, data = rami)))
+
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
+# plots d15N for substrate and growth region with letters from tukeys test
+ggplot() +
+  geom_boxplot(data = rami, aes(x = Growth_Region, y = Nper))+
+  facet_grid(. ~ Substrate, labeller = as_labeller(new_labels, label_parsed))+
+  ylab(" % N") + 
+    xlab("Growth Region")+
+  theme_bw()+
+   scale_y_continuous(limits =c(2,6.65), 
+                     expand = c(0,0))+
+  scale_x_discrete(labels = c("Marginal", "Non-Marginal"))+
+  theme(axis.title.x = element_text(size = 13), 
+        axis.text.x = element_text(size = 10), 
+        axis.title.y = element_text(size = 13))+
+  geom_text(data = summary_dataNper, aes(x = Growth_Region, y = max, 
+                                     label = groups, 
+                                     fontface = "bold"),
+            vjust = -4.5,
+            position = position_dodge(.9))
+
+```
+
+
+```{r, echo = FALSE}
+
+pander(summary(aov(Nper ~ Substrate*Growth_Region, data = rami)))
+
+```
+
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE,results = 'hide',include = FALSE}
+
+# Two-way ANOVA comparing C:N to main effects of substrate and growth region
+summary(aov(C.N ~ Substrate*Growth_Region, data = rami))
+
+# checks assumptions of ANOVA
+leveneTest(C.N ~ Substrate*Growth_Region, data = rami)
+hist(rstandard(aov(C.N ~ Substrate*Growth_Region, data = rami)))
+shapiro.test(rstandard(aov(C.N ~ Substrate*Growth_Region, data = rami)))
+
+```
+
+
+```{r, echo = FALSE, warning = FALSE}
+
+ggplot() +
+  geom_boxplot(data = rami, aes(x = Growth_Region, y = C.N))+
+  facet_grid(. ~ Substrate, labeller = as_labeller(new_labels, label_parsed))+
+  ylab("C:N") + 
+    xlab("Growth Region")+
+  theme_bw()+
+  scale_y_continuous(name = "C:N",
+                    limits = c(11, 25), 
+                     breaks = c(12, 15, 18, 21))+
+  scale_x_discrete(labels = c("Marginal", "Non-Marginal"))+
+  theme(axis.title.x = element_text(size = 13), 
+        axis.text.x = element_text(size = 10), 
+        axis.title.y = element_text(size = 13))+
+  geom_text(data = C_N_labels, aes(x = Growth_Region, y = y, label = label, fontface = "bold"), size = 5, hjust = c(5,-5), position = position_dodge(width=.8))
+
+```
+
+```{r, echo = FALSE}
+
+pander(summary(aov(C.N ~ Substrate*Growth_Region, data = rami)))
+
+```
+
+### Conclusion
+
