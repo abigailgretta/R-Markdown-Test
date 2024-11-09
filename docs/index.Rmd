@@ -65,7 +65,7 @@ rami <- rami %>%
 Sample collection occurred on the leeward side of Flat Cay, an offshore 9 m depth reef along the southwest side of St. Thomas, U.S. Virgin Islands (Fig. 2). This site was selected because of its high abundance of *R. textilis* (46.0% ± 5.9; Hollister et al., 2021) and high frequency of interactions between the alga and *Orbicella annularis* (personal observation). To characterize the abiotic conditions during algal and coral sampling, a temperature logger (Hobo Pendant) and PAR meter were deployed a month prior to the collection time and retrieved on the final day of sampling (Spoiler alert: Due to the results of the pilot study, I am resampling  at Fortuna Bay and Flat Cay windward in December using the same methods provided below). 
 
 <figure style="text-align:center;">
-  <img src="C:/Users/Abigail Gretta/Documents/ArcGIS/Projects/Site2/Layout3.jpg" alt="Description" style="width:50%; height:auto;">
+  <img src="C:/Users/Abigail Gretta/Documents/ArcGIS/Projects/Site2/Layout3.jpg" alt="Description" style="width:70%; height:auto;">
   <p align="center">
   <figcaption><small>Fig. 2: write something .</small>
 </figure>
