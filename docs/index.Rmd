@@ -310,4 +310,3 @@ pander(summary(aov(C.N ~ Substrate*Growth_Region, data = rami)))
 ```
 
 ### Conclusion
-
