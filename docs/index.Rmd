@@ -23,23 +23,28 @@ library(knitr)
 ##   {.tabset}
 ### Background
 
+##### Brief Introduction: 
+
 &nbsp;
 
-The genus *Ramicrusta* is a red calcifying macroalgal that colonizes any hard substrate, often overgrowing numerous living sessile organisms (Eckrich & Engel, 2013).  Despite its ability to overgrow sponges, gorgonians, and crustose coralline algae, *Ramicrusta* has high interactions with reef-building corals (Edmunds et al., 2019). Coral genera exhibit varying levels of vulnerability to *Ramicrusta* colonization, with *Orbicella* sp. among the worst competitors and experience the highest alga overgrowth rates (Hollister et al., 2021). 
+  The rapid proliferation of the red encrusting macroalgal *Ramicrusta* in the Caribbean is raising concerns about its ecological impacts, particularly its ability to outcompete foundational benthic species, inhibit invertebrate recruitment, and overgrow living coral colonies, often leading to coral mortality (Eckrich & Engel, 2013; Edmunds et al., 2019). Coral genera exhibit varying levels of susceptibility to *Ramicrusta* colonization, with *Orbicella* sp. among the most vulnerable and experiencing high alga overgrowth rates (Hollister et al., 2021; Fig. 1). 
+  
+  Considerable evidence illustrates  *Ramicrusta's* tendency to interact with and overgrow live corals (Eckrich & Engel, 2013; Ballantine et al., 2016; Edmunds et al., 2019; Hollister et al., 2021), yet there is a disconnect when it comes to understanding the factors contributing to this relationship.  Macroalgal growth is typically nutrient-limited, especially in oligotrophic tropical waters (Amato et al., 2016; Strait et al., 2021). Thus, *Ramicrusta* may be deriving nutrients from the coral itself, fueling these interactions and promoting its own growth.
 
-&nbsp; 
-
+&nbsp;
 
 <p align="center">
-  <img src="C:/Users/Abigail Gretta/Desktop/Rami.png" alt="Description" style="width:70%; height:auto;">
+  <img src="C:/Users/Abigail Gretta/Desktop/Rami.png" alt="Description" style="width:50%; height:auto;">
   <br><small><i>Fig. 1: <i>R. textilis</i> overgrowing an <i>O. annularis</i> colony (photo: Abigail Gretta).</i></small>
 </p>
 
 &nbsp; 
 
-Considerable evidence illustrates the tendency of *Ramicrusta* to interact with and overgrow live corals, yet there is a disconnect when it comes to understanding the factors contributing to this relationship. Macroalgal growth is typically nutrient-limited, especially in oligotrophic tropical waters (Amato et al., 2016; Strait et al., 2021). Thus, *Ramicrusta* may be deriving nutrients from the coral itself, fueling these interactions and promoting its own growth.
+###### Application of Stable Isotope Analysis:
 
-Bulk stable isotope analyses were used to determine if *Ramicrusta* remineralizes coral nutrients as it overgrows *O. annularis* colonies. Differences in the nutrient profiles of the alga overgrowing live corals (*O. annularis*) versus the alga growing on rocks (control) would suggest remineralization is occurring. 
+Based on predictable isotope fractionation patterns (Fry, 1988), the ability of the alga to remineralize coral nutrients can be evaluated by comparing the nutrient levels in both the alga and coral tissues through bulk stable isotope analyses. Fractionation refers to the preferential use of the lighter isotope (12C, 14N) during metabolic processes, concentrating the heavier form in the organism’s tissues (13C, 15N) (Rounick & Winterbourn, 1986; Fry, 1988; Cohen & Fong, 2004). In heterotrophic consumers, the ratio of heavy to light isotopes for carbon (C) and nitrogen (N) generally enrich by 1‰ and 3‰  per trophic level, respectively (Fry, 1988). These ratios, or isotope signatures, are represented by the delta notation in parts per thousand (δ13C, δ15N). This unique aspect of isotope fractionation provides insight into a consumer's food source (δ13C)  and trophic position (δ15N) (Rounick & Winterbourn, 1986; Post et al., 2002).  However, primary producers typically exhibit a lack of fractionation (Gartner et al., 2002; Cohen & Fong, 2004; Strait et al., 2021). Thus, both the C and N signatures generally reflect their source. As a result, macroalgal bioassays serve as powerful proxies for nutrient studies in oligotrophic environments because tissue analyses can trace nutrient sourcing (δ13C, δ15N), availability (C%, N%), and limitations (C:N) in the surrounding water (Amato et al., 2016; Amato et al., 2018; Strait et al., 2021). 
+
+In theory, if *Ramicrusta* species are remineralizing coral tissues, the C and N isotope signatures of the algae should mirror those of the coral (Cohen & Fong, 2004). Additionally, the C and N percentages may be enhanced in the alga as a result of additional coral nutrients, which would, in turn, reduce nutrient limitations and lower the C:N ratio. (Amato et al., 2016). However, baseline tissue nutrient analyses on the genus *Ramicrusta* are lacking; therefore, we will need to include two upright geniculate calcifying macroalgae species into our sampling to offer context into *Ramicrusta's* nutrient parameters. The rhizophytic green alga *Halimeda opuntia* and epilithic red alga *Jania adhereans* will be prioritized because they are prominent calcifiers within the region and their nutrient contents have been established for oligotrophic reef systems (Fong et al., 2003; Koch et al., 2023). 
 
 The following are the preliminary methods, results, and conclusions from a pilot study conducted on September 2, 2024. 
 
