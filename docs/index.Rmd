@@ -24,8 +24,7 @@ library(knitr)
 ### Background
 
 ##### Brief Introduction: 
-
-  The rapid proliferation of the red encrusting macroalgal *Ramicrusta* in the Caribbean is raising concerns about its ecological impacts, particularly its ability to outcompete foundational benthic species, inhibit invertebrate recruitment, and overgrow living coral colonies, often leading to coral mortality (Eckrich & Engel, 2013; Edmunds et al., 2019). Coral genera exhibit varying levels of susceptibility to *Ramicrusta* colonization, with *Orbicella* sp. among the most vulnerable and experiencing high alga overgrowth rates (Hollister et al., 2021; Fig. 1). 
+The rapid proliferation of the red encrusting macroalgal *Ramicrusta* in the Caribbean is raising concerns about its ecological impacts, particularly its ability to outcompete foundational benthic species, inhibit invertebrate recruitment, and overgrow living coral colonies, often leading to coral mortality (Eckrich & Engel, 2013; Edmunds et al., 2019). Coral genera exhibit varying levels of susceptibility to *Ramicrusta* colonization, with *Orbicella* sp. among the most vulnerable and experiencing high alga overgrowth rates (Hollister et al., 2021; Fig. 1). 
   
 There's been considerable evidence illustrating  *Ramicrusta's* tendency to interact with and overgrow live corals (Eckrich & Engel, 2013; Ballantine et al., 2016; Edmunds et al., 2019; Hollister et al., 2021), yet there remains a disconnect when it comes to understanding the factors contributing to this relationship. As macroalgal growth is generally restricted by nutrient availability, particulary in these oligotrophic water, I hypothesize that *Ramicrusta* may be deriving nutrients from the coral itself, fueling these interactions and promoting its own growth.
 
@@ -61,15 +60,14 @@ rami <- rami %>%
 
 ### Methods
 
-##### Site: 
+##### Site Description: 
 
-Sample collection occurred on the leeward side of Flat Cay, an offshore 9 m depth reef along the southwest side of St. Thomas, U.S. Virgin Islands (Fig. 2). This site was selected because of its high abundance of *R. textilis* (46.0% ± 5.9; Hollister et al., 2021) and high frequency of interactions between the alga and *Orbicella annularis* (personal observation). To characterize the abiotic conditions during algal and coral sampling, a temperature logger (Hobo Pendant) and PAR meter were deployed a month prior to the collection time and retrieved on the final day of sampling. 
-
+Sample collection occurred on the leeward side of Flat Cay, an offshore 9 m depth reef along the southwest side of St. Thomas, U.S. Virgin Islands (Fig. 2). This site was selected because of its high abundance of *R. textilis* (46.0% ± 5.9; Hollister et al., 2021) and high frequency of interactions between the alga and *Orbicella annularis* (personal observation). To characterize the abiotic conditions during algal and coral sampling, a temperature logger (Hobo Pendant) and PAR meter were deployed a month prior to the collection time and retrieved on the final day of sampling (Spoiler alert: Due to the results of the pilot study, I am resampling  at Fortuna Bay and Flat Cay windward in December using the same methods provided below). 
 
 <figure style="text-align:center;">
-  <img src="C:/Users/Abigail Gretta/Documents/ArcGIS/Projects/Site2/Layout3.jpg" alt="Description" style="width:70%; height:auto;">
+  <img src="C:/Users/Abigail Gretta/Documents/ArcGIS/Projects/Site2/Layout3.jpg" alt="Description" style="width:50%; height:auto;">
   <p align="center">
-  <figcaption>Fig. 2: Site</figcaption>
+  <figcaption><small>Fig. 2: write something .</small>
 </figure>
 
 ##### Alga Collection: 
@@ -77,7 +75,7 @@ Sample collection occurred on the leeward side of Flat Cay, an offshore 9 m dept
 Open-circuit SCUBA was used for all algal collections. Replicates of each algal sample was randomly collected by hand,  with a minimum of five meters between samples. The apical regions of *H. opuntia* and *J. adhaerens* (~ 5 cm) were cleanly removed from its thallus (n = 10 samples per species). *R. textilis* was collected from ten rocks (control; n = 10) and ten *O. annualaris* colonies that appeared visually healthy. For each substrate, *R. textilis* was brushed of epiphytes and chiseled at two locations from the same contiguous alga thallus (n = 2 *R. textilis* samples per substrate). One sample was collected from the margin of algal growth and the other was at a linear distance away from the margin, with distances between samples measured (~ 2 to 3 cm) and photographed (Fig. 3). This sampling strategy will distinguish the alga’s nutrient parameters during direct interaction with living coral to those in non-interacting regions, with the algal samples from bare substrate serving as controls for both conditions. Algal replicates will be placed in individual plastic bags at depth with ambient seawater. Samples will be transported to the laboratory in a dark container to minimize physiological stress and processed immediately. 
 
 <figure style="text-align:center;">
-  <img src="C:/Users/Abigail Gretta/Desktop/rami_sample.png" alt="Description" style="width:70%; height:auto;">
+  <img src="C:/Users/Abigail Gretta/Desktop/rami_sample.png" alt="Description" style="width:50%; height:auto;">
   <p align="center">
   <figcaption><small>Fig. 3: *R. textilis* were collected from 10 *O. annularis* colonies (left) and 10 rocks (control), with marginal and non-marginal replicates sampled from each substrate type (n = 2 algal samples per substrate).</small>
 </figure>
