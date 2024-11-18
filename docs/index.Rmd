@@ -330,7 +330,7 @@ c <- ggplot() +
   geom_text(data = C_N_labels, aes(x = Growth_Region, y = y, label = label, fontface = "bold"), size = 5, hjust = c(7.5,-6), position = position_dodge(width=.8))
 
 library(gridExtra)
-grid.arrange(a, b,
+grid.arrange(a, b,c, 
   nrow = 1)
 
 ```
