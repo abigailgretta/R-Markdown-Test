@@ -62,13 +62,12 @@ rami <- rami %>%
 
 ##### Site Description: 
 
-Sample collection occurred on the leeward side of Flat Cay, an offshore 9 m depth reef along the southwest side of St. Thomas, U.S. Virgin Islands (Fig. 2). This site was selected because of its high abundance of *R. textilis* (46.0% ± 5.9; Hollister et al., 2021) and high frequency of interactions between the alga and *Orbicella annularis* (personal observation). To characterize the abiotic conditions during algal and coral sampling, a temperature logger (Hobo Pendant) and PAR meter were deployed a month prior to the collection time and retrieved on the final day of sampling (Spoiler alert: Due to the results of the pilot study, I am resampling  at Fortuna Bay and Flat Cay windward in December using the same methods provided below). 
+Sample collection occurred on the leeward side of Flat Cay, an offshore 9 m depth reef along the southwest side of St. Thomas, U.S. Virgin Islands (Fig. 2). This site was selected because of its high abundance of *R. textilis* (46.0% ± 5.9; Hollister et al., 2021) and high frequency of interactions between the alga and *Orbicella annularis* (personal observation). To characterize the abiotic conditions during algal and coral sampling, a temperature logger (Hobo Pendant) and PAR meter were deployed a month prior to the collection time and retrieved on the final day of sampling. 
 
 <figure style="text-align:center;">
   <img src="C:/Users/Abigail Gretta/Documents/ArcGIS/Projects/Site2/Layout3.jpg" alt="Description" style="width:70%; height:auto;">
   <p align="center">
-  <figcaption><small>Fig. 2: write something .</small>
-</figure>
+  <figcaption><small>Fig. 2: Algal collection occurred on September 2, 2024 on the leeward side of Flat Cay, St. Thomas, a 9 m depth aggregated reef. Effects of remineralization may have been masked by the high nitrogen content found in all alga species, thus Fortuna Bay and Flat Cay windward were marked as future resampling sites because of the considerably low growth rates of *R. textilis* on bare substrate when compared to *O. annularis* at these locations (Hollister et al., 2021).</small></figure>
 
 ##### Alga Collection: 
 
@@ -77,19 +76,17 @@ Open-circuit SCUBA was used for all algal collections. Replicates of each algal 
 <figure style="text-align:center;">
   <img src="C:/Users/Abigail Gretta/Desktop/rami_sample.png" alt="Description" style="width:50%; height:auto;">
   <p align="center">
-  <figcaption><small>Fig. 3: *R. textilis* were collected from 10 *O. annularis* colonies (left) and 10 rocks (control), with marginal and non-marginal replicates sampled from each substrate type (n = 2 algal samples per substrate).</small>
-</figure>
+  <figcaption><small>Fig. 3: *R. textilis* were collected from 10 *O. annularis* colonies (left) and 10 rocks (control), with marginal and non-marginal replicates sampled from each substrate type (n = 2 algal samples per substrate).</small></figure>
 
-##### Lab Preparation: 
+##### Isotope Preparation:
 
 Macroalgae were rinsed with deionized water (DI) to remove any external contaminants (i.e., invertebrates and epiphytes) and thoroughly dried with paper towels (Strait et al., 2021). Samples were loosely parceled in combusted aluminum foil with each sample code and dried at 60℃ to constant weight in a drying oven (24-36 hours). With a clean mortar and pestle (ethanol and DI rinse between samples), algae were ground to a fine powder and carefully packaged in 1.5 mL Eppendorf tubes (Strait et al., 2021). Stable isotope analyses were processed by an Elemental Analyzer Delta V at the University of Hawai’i at Mānoa. Dual stable isotope analyses were performed because acidification has the potential to degrade $\delta^{15}$N and unaltering calcified tissue can skew $\delta^{13}$C (Strait & Spalding, 2021). 
-
-
-### Graphs & Analyses
 
 ##### Data Analysis:
 
 All data were tested for homogeneity and normality. Log transformations were used when data violated ANOVA assumptions. Tissue nutrients ($\delta^{15}$N, % N, and C:N) were assessed using two-factor ANOVA (factors: Substrate, Growth Region, and the interaction of the two). Tukey's honestly significant difference post hoc test was applied to show pairwise comparisons, with distinct letters on graphs denoting significant differences. 
+
+### Rough Graphs 
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE,results = 'hide',include = FALSE}
 
@@ -214,6 +211,10 @@ C_N_labels <- data.frame(
 
 ```
 
+&nbsp;
+
+#####  **$\delta^{15}$N of *Ramicrusta***
+
 ```{r, echo = FALSE, warning = FALSE}
 # plots d15N for substrate and growth region with letters from tukeys test
 
@@ -242,12 +243,14 @@ ggplot() +
 ```{r, echo = FALSE}
 
 pander(summary(aov(log_d15N ~ Substrate*Growth_Region, data = rami)))
-
 ```
+&nbsp;
+
+#####  **% N of *Ramicrusta***
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 
-# plots d15N for substrate and growth region with letters from tukeys test
+# plots %N for substrate and growth region with letters from tukeys test
 ggplot() +
   geom_boxplot(data = rami, aes(x = Growth_Region, y = Nper))+
   facet_grid(. ~ Substrate, labeller = as_labeller(new_labels, label_parsed))+
@@ -288,6 +291,9 @@ shapiro.test(rstandard(aov(C.N ~ Substrate*Growth_Region, data = rami)))
 
 ```
 
+&nbsp;
+
+#####  **C:N of *Ramicrusta***
 
 ```{r, echo = FALSE, warning = FALSE}
 
@@ -304,7 +310,7 @@ ggplot() +
   theme(axis.title.x = element_text(size = 13), 
         axis.text.x = element_text(size = 10), 
         axis.title.y = element_text(size = 13))+
-  geom_text(data = C_N_labels, aes(x = Growth_Region, y = y, label = label, fontface = "bold"), size = 5, hjust = c(5,-5), position = position_dodge(width=.8))
+  geom_text(data = C_N_labels, aes(x = Growth_Region, y = y, label = label, fontface = "bold"), size = 5, hjust = c(7.5,-6), position = position_dodge(width=.8))
 
 ```
 
@@ -314,4 +320,25 @@ pander(summary(aov(C.N ~ Substrate*Growth_Region, data = rami)))
 
 ```
 
+&nbsp;
+
+##### **% N of Calcifying Macroalgal**
+
+```{r, echo = FALSE, warning = FALSE}
+
+ggplot()+
+  geom_boxplot(data = alga, aes(x = Genus, y = Nper))+
+  theme_bw()+
+  ylab("% N")+
+  scale_y_continuous(expand = c(0,0),
+                     limits = c(0,7))+
+  theme(axis.title.x = element_text(size = 13), 
+        axis.text.x = element_text(size = 10, face = "italic"), 
+        axis.title.y = element_text(size = 13))
+  
+
+```
+
 ### Conclusion
+
+### References
