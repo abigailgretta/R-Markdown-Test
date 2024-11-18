@@ -86,7 +86,22 @@ Macroalgae were rinsed with deionized water (DI) to remove any external contamin
 
 All data were tested for homogeneity and normality. Log transformations were used when data violated ANOVA assumptions. Tissue nutrients ($\delta^{15}$N, % N, and C:N) were assessed using two-factor ANOVA (factors: Substrate, Growth Region, and the interaction of the two). Tukey's honestly significant difference post hoc test was applied to show pairwise comparisons, with distinct letters on graphs denoting significant differences. 
 
-### Rough Graphs 
+### Preliminary Results
+
+##### Effects of Remineralization: 
+
+A two-factor ANOVA with a log transformation revealed significant differences in *Ramicrusta's* $\delta^{15}$N for substrate type (p-value = 0.04978) and growth region (p = 0.01112), but no difference was observed in the interaction effect of the two factors. Both the marginal ($\delta^{15}$N = 1.66 ± 0.10) and non-marginal ($\delta^{15}$N = 1.81 ± 0.06) *R. textilis* samples growing on *O. annularis* had higher N signatures than the corresponding control samples ($\delta^{15}$N = 1.36 ± 0.13 and 1.78 ± 0.13, respectively). However, the marginal alga samples for each substrate had consistently lower N signatures than the non-marginal replicates. 
+
+```{r, echo = FALSE}
+
+rami %>%
+  group_by(Substrate) %>%
+  summarize(
+    mean = mean(d15N), 
+    SEM = sd(d15N)/sqrt(length(d15N))
+  )
+
+```
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE,results = 'hide',include = FALSE}
 
@@ -220,7 +235,7 @@ C_N_labels <- data.frame(
 
 new_labels <- c("Bare Rock" = "Control", "Coral" = "italic('O. annularis')")
 
-ggplot() +
+a <- ggplot() +
   geom_boxplot(data = rami, aes(x = Growth_Region, y = d15N))+
   facet_grid(. ~ Substrate, labeller = as_labeller(new_labels, label_parsed))+
   ylab(expression(paste(delta^{15}, "N (\u2030)"))) + 
@@ -239,6 +254,8 @@ ggplot() +
             position = position_dodge(.9))
 ```
 
+<p align="center">
+<figcaption><small>Fig. 4: .</small></figure>
 
 ```{r, echo = FALSE}
 
@@ -251,7 +268,7 @@ pander(summary(aov(log_d15N ~ Substrate*Growth_Region, data = rami)))
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 
 # plots %N for substrate and growth region with letters from tukeys test
-ggplot() +
+b <- ggplot() +
   geom_boxplot(data = rami, aes(x = Growth_Region, y = Nper))+
   facet_grid(. ~ Substrate, labeller = as_labeller(new_labels, label_parsed))+
   ylab(" % N") + 
@@ -297,7 +314,7 @@ shapiro.test(rstandard(aov(C.N ~ Substrate*Growth_Region, data = rami)))
 
 ```{r, echo = FALSE, warning = FALSE}
 
-ggplot() +
+c <- ggplot() +
   geom_boxplot(data = rami, aes(x = Growth_Region, y = C.N))+
   facet_grid(. ~ Substrate, labeller = as_labeller(new_labels, label_parsed))+
   ylab("C:N") + 
@@ -311,6 +328,10 @@ ggplot() +
         axis.text.x = element_text(size = 10), 
         axis.title.y = element_text(size = 13))+
   geom_text(data = C_N_labels, aes(x = Growth_Region, y = y, label = label, fontface = "bold"), size = 5, hjust = c(7.5,-6), position = position_dodge(width=.8))
+
+library(gridExtra)
+grid.arrange(a, b,
+  nrow = 1)
 
 ```
 
