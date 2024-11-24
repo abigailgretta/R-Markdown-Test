@@ -90,8 +90,11 @@ All data were tested for homogeneity and normality. Log transformations were use
 
 ##### Effects of Remineralization: 
 
-A two-factor ANOVA with a log transformation revealed significant differences in *Ramicrusta's* $\delta^{15}$N for substrate type (p-value = 0.04978) and growth region (p = 0.01112), with no significant interaction effect between the two factors. Marginal (mean $\delta^{15}$N ± SEM = 1.66 ‰ ± 0.10) and non-marginal (mean $\delta^{15}$N ± SEM = 1.81 ‰ ± 0.06) samples of *R. textilis* growing on *O. annularis* had higher N signatures compared to their corresponding controls (mean $\delta^{15}$N ± SEM = 1.36 ‰ ± 0.13 and 1.78 ‰ ± 0.13, respectively; Fig. 5). Nitrogen signatures were consistently lower in marginal samples than in non-marginal samples across both substrates. In contrast, the N percentages showed an opposite pattern for each substrate, with marginal samples from *O. annularis* colonies having significantly higher N percentages than non-marginal samples, while no significant difference was observed between the two regions on bare substrate (Fig. 6). The C:N ratio was significantly lower on *O. annularis* colonies (mean of C:N ± SEM = 15.21 ± 0.47) when compared to bare substrate (mean of C:N ± SEM = 17.72 ± 0.57), with no difference was detected for growth region or the interaction of the main effects (Fig. 7). 
+A two-factor ANOVA with a log transformation revealed significant differences in *Ramicrusta's* $\delta^{15}$N for substrate type (p-value = 0.04978) and growth region (p-value = 0.01112), with no significant interaction effect between the two factors. Marginal (mean $\delta^{15}$N ± SEM = 1.66 ‰ ± 0.10) and non-marginal (mean $\delta^{15}$N ± SEM = 1.81 ‰ ± 0.06) samples of *R. textilis* growing on *O. annularis* had higher N signatures compared to their corresponding controls (mean $\delta^{15}$N ± SEM = 1.36 ‰ ± 0.13 and 1.78 ‰ ± 0.13, respectively; Fig. 5). Nitrogen signatures were consistently lower in marginal samples than in non-marginal samples across both substrates. In contrast, the N percentages showed an opposite pattern for each substrate, with marginal samples from *O. annularis* colonies having significantly higher N percentages than non-marginal samples, while no significant difference was observed between the two regions on bare substrate (Fig. 6). The C:N ratio was significantly lower on *O. annularis* colonies (mean of C:N ± SEM = 15.21 ± 0.47) when compared to bare substrate (mean of C:N ± SEM = 17.72 ± 0.57), with no difference was detected for growth region or the interaction of the main effects (Fig. 7). 
 
+##### Calcifying Macroalgae Isotopes: 
+
+The N percentages across all calcifying macroalgae species exceeded 2% (Fig. 8), suggesting potential nutrient enrichment at the site (Amato et al., 2016). However, the N isotopic signatures, ranging from 0.7‰ to 2.4‰, indicate that the N inputs likely originated from non-anthropogenic sources (Strait et al., 2021).
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE,results = 'hide',include = FALSE}
 
@@ -308,18 +311,15 @@ ggplot() +
 
 ```
 <p align="center">
-<figcaption><small> Fig. 7: Boxplot of the C:N from *R. textilis* growing on *O. annularis* (n = 10 colonies) and bare substrate (i.e., control; n = 10 rocks), with a marginal and non-marginal samples collected from each substrate type. A two-factor ANOVA found significant differences between substrate (p-value = 0.00223), but not between the growth regions or the interaction effect of the two factors. Letters denote significant differences two-factor ANOVA.</small></figure>
+<figcaption><small> Fig. 7: Boxplot of the C:N from *R. textilis* growing on *O. annularis* (n = 10 colonies) and bare substrate (i.e., control; n = 10 rocks), with a marginal and non-marginal samples collected from each substrate type. A two-factor ANOVA found significant differences between substrate (p-value = 0.00223), but not between the growth regions or the interaction effect of the two factors. Letters denote significant differences from a two-factor ANOVA.</small></figure>
 
 &nbsp;
-
-##### Calcifying Macroalgae Isotopes: 
-
-The N percentages across all calcifying macroalgae species exceeded 2% (Fig. 7), suggesting potential nutrient enrichment at the site (Amato et al., 2016). However, the N isotopic values, ranging from 0.7‰ to 2.4‰, indicate that the N inputs likely originated from non-anthropogenic sources (Strait et al., 2021).
 
 ```{r, echo = FALSE, warning = FALSE}
 
 ggplot()+
   geom_boxplot(data = alga, aes(x = Genus, y = Nper))+
+  geom_jitter() +
   theme_bw()+
   ylab("% N")+
   scale_y_continuous(expand = c(0,0),
@@ -331,9 +331,44 @@ ggplot()+
 ```
 <figcaption><small> Fig. 8: Boxplot of the % N across all calcifying macroalgal species. The high N content among all calcifers suggests nutrient enrichment may be a confounding factor at this location. </small></figure>
 
-### Conclusion
+### Brief Conclusion
+
+
+The significantly higher N signatures combined with the greater disparity between the marginal and non-marginal N percentages in the alga overgrowing *O. annularis* colonies suggests that *Ramicrusta* may possess the ability to remineralize coral-derived nutrients during overgrowth. This finding supports the hypothesis of a nutrient exchange dynamic between the alga and its coral host. However, the consistently high N percentages across all sampled calcifying macroalgae suggest that the study site may be experiencing nutrient enrichment, potentially obscuring the specific effects of this interaction. To address this, additional sampling will be conducted at two newly selected sites in early December to further investigate and clarify these nutrient dynamics.
 
 ### References
+
+Amato, D. W., Bishop, J. M., Glenn, C. R., Dulai, H., & Smith, C. M. (2016). Impact of submarine groundwater discharge on marine water quality and reef biota of Maui. PLoS ONE, 11(11), e0165825. https://doi.org/10.1371/journal.pone.0165825
+
+Amato, D. W., Smith, C. M., & Duarte, T. K. (2018). Submarine groundwater discharge differentially modifies photosynthesis, growth, and morphology for two contrasting species of gracilaria (Rhodophyta). Hydrology, 5(4), 65. https://doi.org/10.3390/hydrology5040065
+
+Ballantine, D. L., & Ruiz, H. (2013). A unique red algal reef formation in Puerto Rico. Coral Reefs, 32(2), 411–411. https://doi.org/10.1007/s00338-013-1016-2
+
+Cohen, R. A., & Fong, P. (2004). Nitrogen uptake and assimilation in Enteromorpha intestinalis (L.) Link (Chlorophyta): Using 15N to determine preference during simultaneous pulses of nitrate and ammonium. Journal of Experimental Marine Biology and Ecology, 309(1), 67–77. https://doi.org/10.1016/j.jembe.2004.03.009
+
+Eckrich, C. E., & Engel, M. S. (2013). Coral overgrowth by an encrusting red alga (Ramicrusta sp.): A threat to Caribbean reefs? Coral Reefs, 32(1), 81–84. https://doi.org/10.1007/s00338-012-0961-5
+
+Edmunds, P. J., Zimmermann, S. A., & Bramanti, L. (2019). A spatially aggressive peyssonnelid algal crust (PAC) threatens shallow coral reefs in St. John, US Virgin Islands. Coral Reefs, 38(6), 1329–1341. https://doi.org/10.1007/s00338-019-01846-0
+
+Fry, B. (1988). Food web structure on Georges Bank from stable C, N, and S isotopic compositions. Limnology and Oceanography, 33(5), 1182–1190. https://doi.org/10.4319/lo.1988.33.5.1182
+
+Gartner, A., Lavery, P., & Smit, A. (2002). Use of d15N signatures of different functional forms of macroalgae and filter-feeders to reveal temporal and spatial patterns in sewage dispersal. Marine Ecology Progress Series, 235, 63–73. https://doi.org/10.3354/meps235063 
+
+Hollister, K. J., Ennis, R. S., Spalding, H. L., Gabrielson, P. W., & Smith, T. B. (2021). Caribbean corals exhibit species-specific differences in competitive abilities with an aggressive encrusting alga, Ramicrusta textilis. Coral Reefs, 40(6), 1729–1740. https://doi.org/10.1007/s00338-021-02172-0
+
+Koch, M. S., McNicholl, C., Manfrino, C., & Lapointe, B. (2023). Stable carbon and oxygen isotopes indicate photophysiology and calcification mechanisms of macroalgae on Little Cayman Island reefs. Journal of Applied Phycology, 36(2), 1023–1033. https://doi.org/10.1007/s10811-023-03079-9
+
+Post, D. M. (2002). USING STABLE ISOTOPES TO ESTIMATE TROPHIC POSITION: MODELS, METHODS, AND ASSUMPTIONS. 83(3).
+
+Rounick, J. S., and M. J. Winterbourn. 1986. Stable carbon isotopes and carbon flow in ecosystems. BioScience 36: 171–177.
+
+Smith, T.B., Ennis, R.S., Kadison, E., Nemeth, R.S. & Henderson, L.M. (2018) The United States Virgin Islands Territorial Coral Reef Monitoring Program. 2018 Annual Report. University of the Virgin Islands, United States Virgin Islands. https://dpnr.vi. gov/wp-content/uploads/2019/10/TCRMP_Report_2018_ 191028.pdfv
+
+Strait, N. S., & Spalding, H. L. (2021). Mind your methods: acidification degrades total nitrogen and stable isotopic values within calcified marine macroalgae. Phycologia, 60(2), 131–134. https://doi.org/10.1080/00318884.2020.1865713
+
+Strait, N., Williams, T. M., Sherwood, A. R., Kosaki, R. K., Giuseffi, L., Smith, C. M., & Spalding, H. L. (2022). Nitrogen stable isotopes (  δ 15 N  ) and tissue nitrogen in shallow‐water and mesophotic macroalgae differ between the Main Hawaiian Islands and the Northwestern Hawaiian Islands. Limnology and Oceanography, 67(5), 1211–1226. https://doi.org/10.1002/lno.12068
+
+
 
 ### Misc. Analysis 
 
@@ -343,6 +378,7 @@ ggplot()+
 pander(summary(aov(log_d15N ~ Substrate*Growth_Region, data = rami)))
 
 ```
+
 ###### % N
 ```{r, echo = FALSE}
 
