@@ -86,11 +86,13 @@ Macroalgae were rinsed with deionized water (DI) to remove any external contamin
 
 All data were tested for homogeneity and normality. Log transformations were used when data violated ANOVA assumptions. Tissue nutrients ($\delta^{15}$N, % N, and C:N) were assessed using two-factor ANOVA (factors: Substrate, Growth Region, and the interaction of the two). Tukey's honestly significant difference post hoc test was applied to show pairwise comparisons, with distinct letters on graphs denoting significant differences. 
 
-### Preliminary Results
+### Results 
 
 ##### Effects of Remineralization: 
 
 A two-factor ANOVA with a log transformation revealed significant differences in *Ramicrusta's* $\delta^{15}$N for substrate type (p-value = 0.04978) and growth region (p-value = 0.01112), with no significant interaction effect between the two factors. Marginal (mean $\delta^{15}$N ± SEM = 1.66 ‰ ± 0.10) and non-marginal (mean $\delta^{15}$N ± SEM = 1.81 ‰ ± 0.06) samples of *R. textilis* growing on *O. annularis* had higher N signatures compared to their corresponding controls (mean $\delta^{15}$N ± SEM = 1.36 ‰ ± 0.13 and 1.78 ‰ ± 0.13, respectively; Fig. 5). Nitrogen signatures were consistently lower in marginal samples than in non-marginal samples across both substrates. In contrast, the N percentages showed an opposite pattern for each substrate, with marginal samples from *O. annularis* colonies having significantly higher N percentages than non-marginal samples, while no significant difference was observed between the two regions on bare substrate (Fig. 6). The C:N ratio was significantly lower on *O. annularis* colonies (mean of C:N ± SEM = 15.21 ± 0.47) when compared to bare substrate (mean of C:N ± SEM = 17.72 ± 0.57), with no difference was detected for growth region or the interaction of the main effects (Fig. 7). 
+
+&nbsp;
 
 ##### Calcifying Macroalgae Isotopes: 
 
@@ -331,8 +333,9 @@ ggplot()+
 ```
 <figcaption><small> Fig. 8: Boxplot of the % N across all calcifying macroalgal species. The high N content among all calcifers suggests nutrient enrichment may be a confounding factor at this location. </small></figure>
 
-### Brief Conclusion
+&nbsp;
 
+##### Brief Conclusion:
 
 The significantly higher N signatures combined with the greater disparity between the marginal and non-marginal N percentages in the alga overgrowing *O. annularis* colonies suggests that *Ramicrusta* may possess the ability to remineralize coral-derived nutrients during overgrowth. This finding supports the hypothesis of a nutrient exchange dynamic between the alga and its coral host. However, the consistently high N percentages across all sampled calcifying macroalgae suggest that the study site may be experiencing nutrient enrichment, potentially obscuring the specific effects of this interaction. To address this, additional sampling will be conducted at two newly selected sites in early December to further investigate and clarify these nutrient dynamics.
 
