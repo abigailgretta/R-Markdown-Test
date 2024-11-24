@@ -335,7 +335,7 @@ ggplot()+
 
 &nbsp;
 
-##### Brief Conclusion:
+##### Brief Conclusion: 
 
 The significantly higher N signatures combined with the greater disparity between the marginal and non-marginal N percentages in the alga overgrowing *O. annularis* colonies suggests that *Ramicrusta* may possess the ability to remineralize coral-derived nutrients during overgrowth. This finding supports the hypothesis of a nutrient exchange dynamic between the alga and its coral host. However, the consistently high N percentages across all sampled calcifying macroalgae suggest that the study site may be experiencing nutrient enrichment, potentially obscuring the specific effects of this interaction. To address this, additional sampling will be conducted at two newly selected sites in early December to further investigate and clarify these nutrient dynamics.
 
