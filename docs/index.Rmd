@@ -43,7 +43,7 @@ Based on predictable isotope fractionation patterns (Fry, 1988), the ability of 
 
 In theory, if *Ramicrusta* species are remineralizing coral tissues, the C and N isotope signatures of the algae should mirror those of the coral (Cohen & Fong, 2004). Additionally, the C and N percentages may be enhanced in the alga as a result of additional coral nutrients, which would, in turn, reduce nutrient limitations and lower the C:N ratio. (Amato et al., 2016). However, baseline tissue nutrient analyses on the genus *Ramicrusta* are lacking; therefore, we will need to include two upright geniculate calcifying macroalgae species into our sampling to offer context into *Ramicrusta's* nutrient parameters. The rhizophytic green alga *Halimeda opuntia* and epilithic red alga *Jania adhereans* will be prioritized because they are prominent calcifiers within the region and their nutrient contents have been established for oligotrophic reef systems (Fong et al., 2003; Koch et al., 2023). 
 
-The following are the preliminary methods, results, and conclusions from a pilot study conducted on September 2, 2024. 
+The following are the preliminary methods, results, and conclusions from a pilot study conducted on September 3, 2024. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 
