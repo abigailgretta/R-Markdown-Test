@@ -41,7 +41,7 @@ There's been considerable evidence illustrating  *Ramicrusta's* tendency to inte
 
 Based on predictable isotope fractionation patterns (Fry, 1988), the ability of the alga to remineralize coral nutrients can be evaluated through bulk stable isotope analyses. Fractionation refers to the preferential use of the lighter isotope (<sup>12</sup>C, <sup>14</sup>N) during metabolic processes, concentrating the heavier form in the organism’s tissues (<sup>13</sup>C, <sup>15</sup>N) (Rounick & Winterbourn, 1986; Fry, 1988; Cohen & Fong, 2004). In heterotrophic consumers, the ratio of heavy to light isotopes for carbon (C) and nitrogen (N) generally enrich by 1‰ and 3‰  per trophic level, respectively (Fry, 1988). These ratios, or isotope signatures, are represented by the delta notation in parts per thousand ($\delta^{13}$C, $\delta^{15}$N). This unique aspect of isotope fractionation provides insight into a consumer's food source ($\delta^{13}$C)  and trophic position ($\delta^{15}$N) (Rounick & Winterbourn, 1986; Post et al., 2002).  However, primary producers typically exhibit a lack of fractionation (Gartner et al., 2002; Cohen & Fong, 2004; Strait et al., 2021). Thus, both the C and N signatures generally reflect their source. As a result, macroalgal bioassays serve as powerful proxies for nutrient studies in oligotrophic environments because tissue analyses can trace nutrient sourcing ($\delta^{13}$C, $\delta^{15}$N), availability (C%, N%), and limitations (C:N) in the surrounding water (Amato et al., 2016; Amato et al., 2018; Strait et al., 2021). 
 
-In theory, if *Ramicrusta* species are remineralizing coral tissues, the C and N isotope signatures of the algae should mirror those of the coral (Cohen & Fong, 2004). Additionally, the C and N percentages may be enhanced in the alga as a result of additional coral nutrients, which would, in turn, reduce nutrient limitations and lower the C:N ratio. (Amato et al., 2016). However, baseline tissue nutrient analyses on the genus *Ramicrusta* are lacking; therefore, we will need to include two upright geniculate calcifying macroalgae species into our sampling to offer context into *Ramicrusta's* nutrient parameters. The rhizophytic green alga *Halimeda opuntia* and epilithic red alga *Jania adhereans* will be prioritized because they are prominent calcifiers within the region and their nutrient contents have been established for oligotrophic reef systems (Fong et al., 2003; Koch et al., 2023). 
+In theory, if *Ramicrusta* species are remineralizing coral tissues, the C and N isotope signatures and percentage of the algae should be higher due to the trophic enrichment (Fry, 1988; Muscatine et al., 2005). Additionally, the C and N percentages may be enhanced in the alga as a result of additional nutrients derived from the coral tissue, which would, in turn, reduce nutrient limitations and lower the C:N ratio. (Amato et al., 2016). However, baseline tissue nutrient analyses on the genus *Ramicrusta* are lacking; therefore, we will need to include two upright geniculate calcifying macroalgae species into our sampling to offer context into *Ramicrusta's* nutrient parameters. The rhizophytic green alga *Halimeda opuntia* and epilithic red alga *Jania adhereans* will be prioritized because they are prominent calcifiers within the region and their nutrient contents have been established for oligotrophic reef systems (Fong et al., 2003; Koch et al., 2023). 
 
 The following are the preliminary methods, results, and conclusions from a pilot study conducted on September 3, 2024. 
 
@@ -50,12 +50,20 @@ The following are the preliminary methods, results, and conclusions from a pilot
 alga <- read.csv("C:/Users/Abigail Gretta/Desktop/Abi's Stuff/MMES/THESIS/Pilot/Pilot2_alga.csv")
 
 rami <- alga %>%
-  na.omit() %>%
-  select(Genus, Code, Growth_Region, Substrate, d13C, d15N, Nper, Cper, C.N) %>%
+  select(Genus, Sample.Code, Growth_Region, Substrate, d13C, d15N, Nper, Cper, Cper_edit,Nper_edit, C_N) %>%
+  na.omit()%>%
   filter(Genus == "Ramicrusta")
 
 rami <- rami %>%
   mutate(log_d15N = log(d15N))
+
+rami$Nper_edit <- as.numeric(rami$Nper_edit)
+rami$Cper_edit <- as.numeric(rami$Cper_edit)
+alga$Nper_edit <- as.numeric(alga$Nper_edit)
+alga$Cper_edit <- as.numeric(alga$Cper_edit)
+
+
+
 ```
 
 ### Methods
@@ -90,20 +98,14 @@ All data were tested for homogeneity and normality. Log transformations were use
 
 ##### Effects of Remineralization: 
 
-A two-factor ANOVA with a log transformation revealed significant differences in *Ramicrusta's* $\delta^{15}$N for substrate type (p-value = 0.04978) and growth region (p-value = 0.01112), with no significant interaction effect between the two factors. Marginal (mean $\delta^{15}$N ± SEM = 1.66 ‰ ± 0.10) and non-marginal (mean $\delta^{15}$N ± SEM = 1.81 ‰ ± 0.06) samples of *R. textilis* growing on *O. annularis* had higher N signatures compared to their corresponding controls (mean $\delta^{15}$N ± SEM = 1.36 ‰ ± 0.13 and 1.78 ‰ ± 0.13, respectively; Fig. 5). Nitrogen signatures were consistently lower in marginal samples than in non-marginal samples across both substrates. In contrast, the N percentages showed an opposite pattern for each substrate, with marginal samples from *O. annularis* colonies having significantly higher N percentages than non-marginal samples, while no significant difference was observed between the two regions on bare substrate (Fig. 6). The C:N ratio was significantly lower on *O. annularis* colonies (mean of C:N ± SEM = 15.21 ± 0.47) when compared to bare substrate (mean of C:N ± SEM = 17.72 ± 0.57), with no difference was detected for growth region or the interaction of the main effects (Fig. 7). 
-
-&nbsp;
-
-##### Calcifying Macroalgae Isotopes: 
-
-The N percentages across all calcifying macroalgae species exceeded 2% (Fig. 8), suggesting potential nutrient enrichment at the site (Amato et al., 2016). However, the N isotopic signatures, ranging from 0.7‰ to 2.4‰, indicate that the N inputs likely originated from non-anthropogenic sources (Strait et al., 2021).
-
 ```{r, echo = FALSE, warning = FALSE, message = FALSE,results = 'hide',include = FALSE}
 
 
 ########################################################################
 
 # d15N analyses:
+
+str(rami$d15N)
 
 # Two-way ANOVA comparing d15N to main effects of substrate and growth region
 summary(aov(d15N ~ Substrate*Growth_Region, data = rami))
@@ -166,23 +168,23 @@ summary_data
 # %N analyses:
 
 # Two-way ANOVA comparing %N to main effects of substrate and growth region
-summary(aov(Nper ~ Substrate*Growth_Region, data = rami))
-leveneTest(Nper ~ Substrate*Growth_Region, data = rami)
-hist(rstandard(aov(Nper ~ Substrate*Growth_Region, data = rami)))
-shapiro.test(rstandard(aov(Nper ~ Substrate*Growth_Region, data = rami)))
+summary(aov(Nper_edit ~ Substrate*Growth_Region, data = rami))
+leveneTest(Nper_edit  ~ Substrate*Growth_Region, data = rami)
+hist(rstandard(aov(Nper_edit  ~ Substrate*Growth_Region, data = rami)))
+shapiro.test(rstandard(aov(Nper_edit ~ Substrate*Growth_Region, data = rami)))
 
 # difference found between growth region, but no difference in substrate 
 # and interaction effect 
 
 # post hoc results & create sign. diff. letters for plot
-post_hoc_result_Nper <- TukeyHSD(aov(Nper ~ Substrate*Growth_Region, data = rami))
+post_hoc_result_Nper <- TukeyHSD(aov(Nper_edit ~ Substrate*Growth_Region, data = rami))
 print(post_hoc_result_Nper)
 print(post_hoc_result_Nper$`Substrate:Growth_Region`)
 
-# group and summarize max of d15N. add 0.1 for letter placement 
+# group and summarize max of Nper and add 0.1 for letter placement 
 summary_dataNper <- rami %>%
   group_by(Substrate,Growth_Region) %>%
-  summarise(max = max(Nper, na.rm = TRUE)+0.01) %>%
+  summarise(max = max(Nper_edit, na.rm = TRUE)+0.01) %>%
   ungroup()
 summary_dataNper
 
@@ -220,7 +222,28 @@ C_N_labels <- data.frame(
   y = c(23, 21), 
   label = c("a", "b"))
 
+test <- rami %>%
+  filter(Growth_Region == "Apical")
+
+test %>%
+  group_by(Substrate) %>%
+  summarize(
+    mean = mean(Nper_edit), 
+    SEM = sd(Nper_edit)/sqrt(length(Nper_edit)))
+
+rami %>%
+  group_by(Substrate, Growth_Region) %>%
+  summarize(
+    mean = mean(Nper_edit), 
+    SEM = sd(Nper_edit)/sqrt(length(Nper_edit)))
+
+    
+summary(aov(Nper_edit ~ Substrate, data = test))
+
+
 ```
+
+A two-factor ANOVA with a log transformation revealed significant differences in *Ramicrusta's* in the N content  for substrate type (p-value = 0.04978) and growth region (p-value = 0.01112), with no significant interaction effect between the two factors. Marginal (mean $\delta^{15}$N ± SEM = 1.66 ‰ ± 0.10) and non-marginal (mean $\delta^{15}$N ± SEM = 1.81 ‰ ± 0.06) samples of *R. textilis* growing on *O. annularis* had higher N signatures compared to their corresponding controls (mean $\delta^{15}$N ± SEM = 1.36 ‰ ± 0.13 and 1.78 ‰ ± 0.13, respectively; Fig. 5). Nitrogen signatures were consistently lower in marginal samples than in non-marginal samples across both substrates. 
 
 &nbsp;
 
@@ -247,56 +270,52 @@ ggplot() +
             vjust = -4.5,
             position = position_dodge(.9))
 ```
-
 <p align="center">
 <figcaption><small> Fig. 5: Boxplot of the N signatures from *R. textilis* growing on *O. annularis* (n = 10 colonies) and bare substrate (i.e., control; n = 10 rocks), with a marginal and non-marginal samples collected from each substrate type. A two-factor ANOVA found significant differences between substrate (p-value = 0.04978) and growth region (p = 0.01112), but not the interaction effect of the two factors. Letters denote significant differences from a Tukey's post hoc test.</small></figure>
 
 &nbsp;
 
+In contrast, the N content of *R. textilis* exhibited the opposite pattern of $\delta^{15}$N for substrate type and growth region. The marginal algal samples from *O. annularis* colonies had significantly higher N percentages than non-marginal replicates (two-factor ANOVA with a Tukey HSD; p-value = 0.0026933), while no difference was observed between the two regions on bare substrate (Fig. 6). Although a two-factor ANOVA only revealed differences in N content for growth region and not substrate type, the alga did demonstrate significant difference between the alga's marginal samples on *O. annularis* when compared to the non-marginal replicates for both substrate types. Additionally, there was a nearly significant difference between the N content of *R. textilis* on *O. annularis* (mean ± SEM = 0.462 % ± 0.022) and bare substrate (mean ± SEM = 0.395 % ±	0.025) when isolating marginal replicates (one-factor ANOVA; p-value = 0.0671), while N percentages were nearly equivalent for the non-marginal thalli across substrate type. 
+
+&nbsp;
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 
 # plots %N for substrate and growth region with letters from tukeys test
+
+rami$Nper_edit <-  as.numeric(rami$Nper_edit)
+
 ggplot() +
-  geom_boxplot(data = rami, aes(x = Growth_Region, y = Nper))+
+  geom_boxplot(data = rami, aes(x = Growth_Region, y = Nper_edit))+
   facet_grid(. ~ Substrate, labeller = as_labeller(new_labels, label_parsed))+
   ylab(" % N") + 
     xlab("Growth Region")+
   theme_bw()+
-   scale_y_continuous(limits =c(2,6.65), 
-                     expand = c(0,0))+
+   scale_y_continuous(limits = c(0.2,0.7),
+                      expand = c(0,0))+
   scale_x_discrete(labels = c("Marginal", "Non-Marginal"))+
   theme(axis.title.x = element_text(size = 13), 
         axis.text.x = element_text(size = 10), 
         axis.title.y = element_text(size = 13))+
-  geom_text(data = summary_dataNper, aes(x = Growth_Region, y = max, 
+    geom_text(data = summary_dataNper, aes(x = Growth_Region, y = max, 
                                      label = groups, 
                                      fontface = "bold"),
             vjust = -4.5,
             position = position_dodge(.9))
-
 ```
 <p align="center">
-<figcaption><small> Fig. 6: Boxplot of the % N from *R. textilis* growing on *O. annularis* (n = 10 colonies) and bare substrate (i.e., control; n = 10 rocks), with a marginal and non-marginal samples collected from each substrate type. A two-factor ANOVA found significant differences between growth region (p-value = 0.0005287), but not between substrate types or the interaction effect of the two factors. Letters denote significant differences from a Tukey's post hoc test.</small></figure>
+<figcaption><small> Fig. 6: Boxplot of the % N from *R. textilis* growing on *O. annularis* (n = 10 colonies) and bare substrate (i.e., control; n = 10 rocks), with a marginal and non-marginal samples collected from each substrate type. A two-factor ANOVA found significant differences between growth region (p-value = 0.000521), but not between substrate types or the interaction effect of the two factors. Letters denote significant differences from a Tukey's post hoc test.</small></figure>
 
-```{r, echo = FALSE, warning = FALSE, message = FALSE,results = 'hide',include = FALSE}
+&nbsp;
 
-# Two-way ANOVA comparing C:N to main effects of substrate and growth region
-summary(aov(C.N ~ Substrate*Growth_Region, data = rami))
-
-# checks assumptions of ANOVA
-leveneTest(C.N ~ Substrate*Growth_Region, data = rami)
-hist(rstandard(aov(C.N ~ Substrate*Growth_Region, data = rami)))
-shapiro.test(rstandard(aov(C.N ~ Substrate*Growth_Region, data = rami)))
-
-```
+The C:N ratio was significantly lower on *O. annularis* colonies (mean C:N ± SEM = 15.21 ± 0.47) when compared to bare substrate (mean C:N ± SEM = 17.72 ± 0.57), with no differences detected for growth region or the interaction of the main effects (Fig. 7). Since the N percentages of the alga's non-marginal samples were consistent across substrate types, the disparity between the C:N was likely driven by higher carbon content observed in the alga growing on bare substrate (mean % C ± SEM = 5.954% ±	0.479) versus the coral colonies (mean % C ± SEM = 5.030% ±	0.331; Fig. 8). In contrast, the C content was fairly similar in the alga's apical region for each substrate (control substrate = 6.861% ± 0.413; coral substrate = 6.9103% ± 0.320; Fig. 8); indicting that the difference in C:N may be attributed to the high N found in the alga encrusting over the *O. annularis*. 
 
 &nbsp;
 
 ```{r, echo = FALSE, warning = FALSE}
 
 ggplot() +
-  geom_boxplot(data = rami, aes(x = Growth_Region, y = C.N))+
+  geom_boxplot(data = rami, aes(x = Growth_Region, y = C_N))+
   facet_grid(. ~ Substrate, labeller = as_labeller(new_labels, label_parsed))+
   ylab("C:N") + 
     xlab("Growth Region")+
@@ -309,35 +328,194 @@ ggplot() +
         axis.text.x = element_text(size = 10), 
         axis.title.y = element_text(size = 13))+
   geom_text(data = C_N_labels, aes(x = Growth_Region, y = y, label = label, fontface = "bold"), size = 5, hjust = c(7.5,-6), position = position_dodge(width=.8))
-
-
 ```
 <p align="center">
 <figcaption><small> Fig. 7: Boxplot of the C:N from *R. textilis* growing on *O. annularis* (n = 10 colonies) and bare substrate (i.e., control; n = 10 rocks), with a marginal and non-marginal samples collected from each substrate type. A two-factor ANOVA found significant differences between substrate (p-value = 0.00223), but not between the growth regions or the interaction effect of the two factors. Letters denote significant differences from a two-factor ANOVA.</small></figure>
 
-&nbsp;
+```{r, echo = FALSE, warning = FALSE, message = FALSE,results = 'hide',include = FALSE}
 
-```{r, echo = FALSE, warning = FALSE}
+# %C analyses:
 
-ggplot()+
-  geom_boxplot(data = alga, aes(x = Genus, y = Nper))+
-  geom_jitter() +
-  theme_bw()+
-  ylab("% N")+
-  scale_y_continuous(expand = c(0,0),
-                     limits = c(0,7))+
-  theme(axis.title.x = element_text(size = 13), 
-        axis.text.x = element_text(size = 10, face = "italic"), 
-        axis.title.y = element_text(size = 13))
+# Two-way ANOVA comparing %C to main effects of substrate and growth region
+summary(aov(Cper_edit ~ Substrate*Growth_Region, data = rami))
+leveneTest(Cper_edit  ~ Substrate*Growth_Region, data = rami)
+hist(rstandard(aov(Cper_edit  ~ Substrate*Growth_Region, data = rami)))
+shapiro.test(rstandard(aov(Cper_edit ~ Substrate*Growth_Region, data = rami)))
+
+# difference found between growth region, but no difference in substrate 
+# and interaction effect 
+
+# post hoc results & create sign. diff. letters for plot
+post_hoc_result_Cper <- TukeyHSD(aov(Cper_edit ~ Substrate*Growth_Region, data = rami))
+print(post_hoc_result_Cper)
+print(post_hoc_result_Cper$`Substrate:Growth_Region`)
+
+# group and summarize max of Cper and add 0.1 for letter placement 
+summary_dataCper <- rami %>%
+  group_by(Substrate,Growth_Region) %>%
+  summarise(max = max(Cper_edit, na.rm = TRUE)+0.01) %>%
+  ungroup()
+summary_dataCper
+
+# creates letters, uses tukey results with Substrate:Growth with the p-value in 
+# the 4th column 
+exp_letters_Cper <- multcompLetters(post_hoc_result_Cper$`Substrate:Growth_Region`[, 4])$Letters
+
+# creates a data frame 
+# condition is the name of the assigned letters (levels on Substrate & Growth)
+# groups = assigned letters
+tukey_result_Cper <- data.frame(condition = names(exp_letters_Cper),
+                           groups = exp_letters_Cper)
+# excludes  row names 
+rownames(tukey_result_Cper) <- NULL
+tukey_result_Cper
+
+# splits conditions, divide condition where : exists, creates space between, 
+# renames the first condition, renames the second condition 
+tukey_result_Cper <- tukey_result_Cper %>%
+  mutate(Substrate_Growth_Region = str_split(condition, pattern = ":")) %>%
+  unnest_wider(Substrate_Growth_Region, names_sep = "_") %>%
+  rename(Substrate  = Substrate_Growth_Region_1) %>%
+  rename(Growth_Region  = Substrate_Growth_Region_2)
+tukey_result_Cper
+
+# joins summarized data with tukey results 
+summary_dataCper <- summary_dataCper |>
+  left_join(tukey_result_Cper, by = c("Substrate", "Growth_Region"))
+summary_dataCper
 
 ```
-<figcaption><small> Fig. 8: Boxplot of the % N across all calcifying macroalgal species. The high N content among all calcifers suggests nutrient enrichment may be a confounding factor at this location. </small></figure>
+
+&nbsp;
+```{r, echo = FALSE, warning = FALSE}
+
+ggplot() +
+  geom_boxplot(data = rami, aes(x = Growth_Region, y = Cper_edit))+
+  facet_grid(. ~ Substrate, labeller = as_labeller(new_labels, label_parsed))+
+  ylab(" % C") + 
+    xlab("Growth Region")+
+  theme_bw()+
+   scale_y_continuous(limit = c(3.5, 11),
+     expand = c(0,0))+
+  scale_x_discrete(labels = c("Marginal", "Non-Marginal"))+
+  theme(axis.title.x = element_text(size = 13), 
+        axis.text.x = element_text(size = 10), 
+        axis.title.y = element_text(size = 13))+
+      geom_text(data = summary_dataCper, aes(x = Growth_Region, y = max, 
+                                     label = groups, 
+                                     fontface = "bold"),
+            vjust = -2.0,
+            position = position_dodge(.9))
+```
+<p align="center">
+<figcaption><small> Fig. 8: Boxplot of the % C from *R. textilis* growing on *O. annularis* (n = 10 colonies) and bare substrate (i.e., control; n = 10 rocks), with a marginal and non-marginal samples collected from each substrate type. A two-factor ANOVA found significant differences between growth region (p-value = 0.00111), but not between substrate types or the interaction effect of the two factors. Letters denote significant differences from a Tukey's post hoc test.</small></figure>
 
 &nbsp;
 
 ##### Brief Conclusion: 
 
-The significantly higher N signatures combined with the greater disparity between the marginal and non-marginal N percentages in the alga overgrowing *O. annularis* colonies suggests that *Ramicrusta* may possess the ability to remineralize coral-derived nutrients during overgrowth. This finding supports the hypothesis of a nutrient exchange dynamic between the alga and its coral host. However, the consistently high N percentages across all sampled calcifying macroalgae suggest that the study site may be experiencing nutrient enrichment, potentially obscuring the specific effects of this interaction. To address this, additional sampling will be conducted at two newly selected sites in early December to further investigate and clarify these nutrient dynamics.
+These results may support the hypothesis that *Ramicrusta* has the ability to remineralize coral nutrients as it colonizes coral colonies. Because of isotopic fractionation during metabolic events, the significantly higher N signatures found in the alga overgrowing *O. annularis* colonies may have been a result of coral-derived nutrients. However, it was anticipated that the highest N signatures would occur when the alga was directly interacting with live coral tissue. Even though the N signatures were enriched in *R. textilis* tissues extracted from coral colonies, the consistently lower N signatures observed in the alga's apical regions across both substrates may have resulted from a reduced selection for nitrogen species, driven by the high nitrogen demand associated with new growth (Umezawa et al., 2007). 
+- healthy macroalgae can release isotopically light N compounds when N-saturated; however, high irradiance can initiate the leaking of N from lysis via photodamage
+
+The striking disparity between the marginal and non-marginal N percentages in the alga overgrowing *O. annularis* colonies, compared to the control substrates, indicates a possible additional influx of nitrogen where the alga is actively encrusting over the coral.
+
+
+&nbsp;
+&nbsp;
+
+##### Calcifying Macroalgae Isotopes: 
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE,results = 'hide',include = FALSE}
+
+# Two-way ANOVA comparing C:N to main effects of substrate and growth region
+summary(aov(C_N ~ Substrate*Growth_Region, data = rami))
+
+# checks assumptions of ANOVA
+leveneTest(C_N ~ Substrate*Growth_Region, data = rami)
+hist(rstandard(aov(C_N ~ Substrate*Growth_Region, data = rami)))
+shapiro.test(rstandard(aov(C_N ~ Substrate*Growth_Region, data = rami)))
+
+```
+
+&nbsp;
+
+```{r, echo = FALSE, warning = FALSE}
+ggplot()+
+  geom_boxplot(data = alga, aes(x = Genus, y = Nper_edit))+
+  geom_jitter() +
+  theme_bw()+
+  ylab("% N")+
+  scale_y_continuous(expand = c(0,0))+
+  theme(axis.title.x = element_text(size = 13), 
+        axis.text.x = element_text(size = 10, face = "italic"), 
+        axis.title.y = element_text(size = 13))
+
+ggplot()+
+  geom_boxplot(data = alga, aes(x = Genus, y = Cper_edit))+
+  geom_jitter() +
+  theme_bw()+
+  ylab("% C")+
+  scale_y_continuous(expand = c(0,0))+
+  theme(axis.title.x = element_text(size = 13), 
+        axis.text.x = element_text(size = 10, face = "italic"), 
+        axis.title.y = element_text(size = 13))
+
+ggplot()+
+  geom_boxplot(data = alga, aes(x = Genus, y = d13C))+
+  geom_jitter() +
+  theme_bw()+
+  ylab("d13C")+
+  scale_y_continuous(expand = c(0,0))+
+  theme(axis.title.x = element_text(size = 13), 
+        axis.text.x = element_text(size = 10, face = "italic"), 
+        axis.title.y = element_text(size = 13))
+
+ggplot()+
+  geom_boxplot(data = alga, aes(x = Genus, y = d15N))+
+  geom_jitter() +
+  theme_bw()+
+  ylab("d15N")+
+  scale_y_continuous(expand = c(0,0))+
+  theme(axis.title.x = element_text(size = 13), 
+        axis.text.x = element_text(size = 10, face = "italic"), 
+        axis.title.y = element_text(size = 13))
+
+```
+<figcaption><small> Fig. 9: Boxplot of the % N across all calcifying macroalgal species. </small></figure>
+
+&nbsp;
+
+```{r, echo = FALSE, warning = FALSE}
+ggplot()+
+  geom_boxplot(data = alga, aes(x = Genus, y = Cper_edit))+
+  geom_jitter() +
+  theme_bw()+
+  ylab("% C")+
+  scale_y_continuous(expand = c(0,0))+
+  theme(axis.title.x = element_text(size = 13), 
+        axis.text.x = element_text(size = 10, face = "italic"), 
+        axis.title.y = element_text(size = 13))
+
+ggplot()+
+  geom_boxplot(data = alga, aes(x = Genus, y = d13C))+
+  geom_jitter() +
+  theme_bw()+
+  ylab("d13C")+
+  scale_y_continuous(expand = c(0,0))+
+  theme(axis.title.x = element_text(size = 13), 
+        axis.text.x = element_text(size = 10, face = "italic"), 
+        axis.title.y = element_text(size = 13))
+
+ggplot()+
+  geom_boxplot(data = alga, aes(x = Genus, y = d15N))+
+  geom_jitter() +
+  theme_bw()+
+  ylab("d15N")+
+  scale_y_continuous(expand = c(0,0))+
+  theme(axis.title.x = element_text(size = 13), 
+        axis.text.x = element_text(size = 10, face = "italic"), 
+        axis.title.y = element_text(size = 13))
+```
 
 ### References
 
@@ -392,6 +570,6 @@ pander(summary(aov(Nper ~ Substrate*Growth_Region, data = rami)))
 ###### C:N
 ```{r, echo = FALSE}
 
-pander(summary(aov(C.N ~ Substrate*Growth_Region, data = rami)))
+pander(summary(aov(C_N ~ Substrate*Growth_Region, data = rami)))
 
 ```
