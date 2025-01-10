@@ -243,10 +243,7 @@ summary(aov(Nper_edit ~ Substrate, data = test))
 
 ```
 
-A two-factor ANOVA with a log transformation revealed significant differences in *Ramicrusta's* in the N content  for substrate type (p-value = 0.04978) and growth region (p-value = 0.01112), with no significant interaction effect between the two factors. Marginal (mean $\delta^{15}$N ± SEM = 1.66 ‰ ± 0.10) and non-marginal (mean $\delta^{15}$N ± SEM = 1.81 ‰ ± 0.06) samples of *R. textilis* growing on *O. annularis* had higher N signatures compared to their corresponding controls (mean $\delta^{15}$N ± SEM = 1.36 ‰ ± 0.13 and 1.78 ‰ ± 0.13, respectively; Fig. 5). Nitrogen signatures were consistently lower in marginal samples than in non-marginal samples across both substrates. 
-
-&nbsp;
-
+A two-factor ANOVA with a log transformation revealed significant differences in the N signatures of *Ramicrusta*  for substrate type (p-value = 0.04978) and growth region (p-value = 0.01112), with no significant interaction effect between the two factors. Marginal (mean $\delta^{15}$N ± SEM = 1.66 ‰ ± 0.10) and non-marginal (mean $\delta^{15}$N ± SEM = 1.81 ‰ ± 0.06) samples of *R. textilis* growing on *O. annularis* had higher N signatures compared to their corresponding controls (mean $\delta^{15}$N ± SEM = 1.36 ‰ ± 0.13 and 1.78 ‰ ± 0.13, respectively; Fig. 5). Nitrogen signatures were consistently lower in marginal samples than in non-marginal samples across both substrates. 
 ```{r, echo = FALSE, warning = FALSE}
 # plots d15N for substrate and growth region with letters from tukeys test
 
@@ -275,10 +272,7 @@ ggplot() +
 
 &nbsp;
 
-In contrast, the N content of *R. textilis* exhibited the opposite pattern of $\delta^{15}$N for substrate type and growth region. The marginal algal samples from *O. annularis* colonies had significantly higher N percentages than non-marginal replicates (two-factor ANOVA with a Tukey HSD; p-value = 0.0026933), while no difference was observed between the two regions on bare substrate (Fig. 6). Although a two-factor ANOVA only revealed differences in N content for growth region and not substrate type, the alga did demonstrate significant difference between the alga's marginal samples on *O. annularis* when compared to the non-marginal replicates for both substrate types. Additionally, there was a nearly significant difference between the N content of *R. textilis* on *O. annularis* (mean ± SEM = 0.462 % ± 0.022) and bare substrate (mean ± SEM = 0.395 % ±	0.025) when isolating marginal replicates (one-factor ANOVA; p-value = 0.0671), while N percentages were nearly equivalent for the non-marginal thalli across substrate type. 
-
-&nbsp;
-
+In contrast, the N content of *R. textilis* exhibited the opposite pattern observed in the alga's $\delta^{15}$N values for substrate type and growth region. The marginal algal samples collected from *O. annularis* colonies had significantly higher N percentages than the non-marginal replicates (two-factor ANOVA with a Tukey HSD; p-value = 0.0026933), while no difference was observed between the two regions on bare substrate (Fig. 6). Although a two-factor ANOVA only revealed differences in N content for growth region and not substrate type, the alga did demonstrate significant difference between the alga's marginal samples on *O. annularis* when compared to the non-marginal replicates for both substrate types. Additionally, there was a nearly significant difference between the N content of *R. textilis* on *O. annularis* (mean % N ± SEM = 0.462 % ± 0.022) and bare substrate (mean % N ± SEM = 0.395 % ±	0.025) when isolating marginal replicates (one-factor ANOVA; p-value = 0.0671), while N percentages were nearly equivalent for the non-marginal thalli across substrate type. 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 
 # plots %N for substrate and growth region with letters from tukeys test
@@ -415,7 +409,11 @@ ggplot() +
 ##### Brief Conclusion: 
 
 These results may support the hypothesis that *Ramicrusta* has the ability to remineralize coral nutrients as it colonizes coral colonies. Because of isotopic fractionation during metabolic events, the significantly higher N signatures found in the alga overgrowing *O. annularis* colonies may have been a result of coral-derived nutrients. However, it was anticipated that the highest N signatures would occur when the alga was directly interacting with live coral tissue. Even though the N signatures were enriched in *R. textilis* tissues extracted from coral colonies, the consistently lower N signatures observed in the alga's apical regions across both substrates may have resulted from a reduced selection for nitrogen species, driven by the high nitrogen demand associated with new growth (Umezawa et al., 2007). 
-- healthy macroalgae can release isotopically light N compounds when N-saturated; however, high irradiance can initiate the leaking of N from lysis via photodamage
+
+Thoughts: 
+- Healthy macroalgae can release isotopically light N compounds when N-saturated; however, the mechanisms governing this process are less understood. 
+- There is a relative increase in the N supply as growth demand decreases. Thus, the non-marginal replicates 
+- 
 
 The striking disparity between the marginal and non-marginal N percentages in the alga overgrowing *O. annularis* colonies, compared to the control substrates, indicates a possible additional influx of nitrogen where the alga is actively encrusting over the coral.
 
