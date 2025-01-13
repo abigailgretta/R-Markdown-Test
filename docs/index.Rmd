@@ -407,7 +407,6 @@ ggplot() +
 
 ##### Brief Conclusion: 
 &nbsp;
-
 *$\delta^{15}$N*:
 
 These results could support the hypothesis that *Ramicrusta* has the ability to remineralize coral nutrients as it colonizes coral colonies. Because of isotopic fractionation during metabolic processes in heterotrophic consumers, the significantly higher N signatures found in the alga overgrowing *O. annularis* could indicate the use of coral-derived nutrients. Futhermore, even under N saturated states, macroalgae generally assimiliate <sup>14</sup>N and <sup>15</sup>N  in direct proportion (Fong et al., 2004; Fong et al., 2005), suggesting that the alga may be accessing alternative N sources based on substrate type. 
