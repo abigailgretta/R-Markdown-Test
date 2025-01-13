@@ -75,7 +75,7 @@ Sample collection occurred on the leeward side of Flat Cay, an offshore 9 m dept
 <figure style="text-align:center;">
   <img src="C:/Users/Abigail Gretta/Documents/ArcGIS/Projects/Site2/Layout3_edit.jpg" alt="Description" style="width:70%; height:auto;">
   <p align="center">
-  <figcaption><small>Fig. 2: Algal collection occurred on September 2 and December 4, 2024 on the leeward side of Flat Cay and Fortuna Bay, St. Thomas, respectively. Sites were selected due to the high *Ramicrusta* prevalence and the high alga-*Orbicella* interactions (Hollister et al., 2021).</small></figure>
+  <figcaption><small>Fig. 2: Algal collection occurred on September 2 and December 4, 2024 at Flat Cay and Fortuna Bay, St. Thomas, respectively. Sites were selected due to the high *Ramicrusta* prevalence and the high alga-*Orbicella* interactions found at both sites. (Hollister et al., 2021).</small></figure>
 
 ##### Alga Collection: 
 
