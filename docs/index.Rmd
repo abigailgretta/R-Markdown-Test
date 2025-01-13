@@ -268,7 +268,6 @@ ggplot() +
             position = position_dodge(.9))
 
 ```
-```
 <p align="center">
 <figcaption><small> Fig. 5: Boxplot of the N signatures from *R. textilis* growing on *O. annularis* (n = 10 colonies) and bare substrate (i.e., control; n = 10 rocks), with a marginal and non-marginal samples collected from each substrate type. A two-factor ANOVA found significant differences between substrate (p-value = 0.04978) and growth region (p = 0.01112), but not the interaction effect of the two factors. Letters denote significant differences from a Tukey's post hoc test.</small></figure>
 
@@ -303,9 +302,6 @@ ggplot() +
 &nbsp;
 
 The C:N ratio was significantly lower on *O. annularis* colonies (mean C:N ± SEM = 15.21 ± 0.47) when compared to bare substrate (mean C:N ± SEM = 17.72 ± 0.57), with no differences detected for growth region or the interaction of the main effects (Fig. 7). Since the N percentages of the alga's non-marginal samples were consistent across substrate types, the disparity between the C:N was likely driven by higher carbon content observed in the alga growing on bare substrate (mean % C ± SEM = 5.954% ±	0.479) versus the coral colonies (mean % C ± SEM = 5.030% ±	0.331; Fig. 8). In contrast, the C content was fairly similar in the alga's apical region for each substrate (control substrate = 6.861% ± 0.413; coral substrate = 6.9103% ± 0.320; Fig. 8); indicting that the difference in C:N may be attributed to the high N found in the alga encrusting over the *O. annularis*. 
-
-&nbsp;
-
 ```{r, echo = FALSE, warning = FALSE}
 
 ggplot() +
@@ -325,6 +321,8 @@ ggplot() +
 ```
 <p align="center">
 <figcaption><small> Fig. 7: Boxplot of the C:N from *R. textilis* growing on *O. annularis* (n = 10 colonies) and bare substrate (i.e., control; n = 10 rocks), with a marginal and non-marginal samples collected from each substrate type. A two-factor ANOVA found significant differences between substrate (p-value = 0.00223), but not between the growth regions or the interaction effect of the two factors. Letters denote significant differences from a two-factor ANOVA.</small></figure>
+
+&nbsp;
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE,results = 'hide',include = FALSE}
 
@@ -408,26 +406,15 @@ ggplot() +
 
 ##### Brief Conclusion: 
 
-These results could support the hypothesis that *Ramicrusta* has the ability to remineralize coral nutrients as it colonizes coral colonies. Because of isotopic fractionation during metabolic events in heterotrophic consumers, the significantly higher N signatures found in the alga overgrowing *O. annularis*  may have been a result of coral-derived nutrients. However, it was anticipated that the highest N signatures would occur when the alga was directly interacting with live coral tissue. Additionally, apical regions of a thallus generally have enriched d15N value because the high N demand associated with new growth reduces N species selection, while the N supply available for older portions of the thallus increases relative to it's demand (Umezawa et al., 2007). As this is the first isotopic study conducted on the genus *Ramicrusta*, it's difficult to interpret these snapshots of nutrient profiles when nutrient histories for the taxon is lacking. However, there are some palusible causes for this unexpected result. 
+These results could support the hypothesis that *Ramicrusta* has the ability to remineralize coral nutrients as it colonizes coral colonies. Because of isotopic fractionation during metabolic events in heterotrophic consumers, the significantly higher N signatures found in the alga overgrowing *O. annularis*  may have been a result of coral-derived nutrients. However, it was anticipated that the highest N signatures would occur when the alga was directly interacting with live coral tissue. Additionally, the apical regions of macroalgae thallus  generally exhibit enriched d15N values because the high N demand associated with new growth reduces N species selection, while the N supply available for the older portions of the thallus increases relative to it's demand (Umezawa et al., 2007). As this is the first isotopic study conducted on the genus *Ramicrusta*, it's difficult to interpret these nutrient snapshots when information on it's nutrient history is lacking. 
 
-First, physiological stress disrupts the coral-symbiont relationship, as seen in bleaching events where corals expel symbionts under heat stress. Competition can also trigger symbiont expulsion, disrupting nitrogen recycling. Typically, corals exhibit low δ¹⁵N values because symbionts retain ¹⁴N within the holobiont. However, expelling dinoflagellates releases ¹⁴N as ammonium into the water. This ammonium leakage may explain the low δ¹⁵N values observed in Ramicrusta during coral competition.
+Umezawa et al. (2007) found similar results in *Padina australis*. 
 
+- First, Tyler et al. (2001) demonstrated that the red alga *Gracilaria vermiculophylla* releases surplus DON when undergoing periods of senescence. Although the processes as to if 15N depleted is excreted are less understood in macroalgae, Waser et al. (1998) found that the diatom *Thalassiosia psudonana* released 14N during incubation. 
 
-
-the difference in the N signatures marginal and non-marginal alga samples collected frmo *Orbicella* suggests  There are ___ plausible causes for this unexpected results.  
+- Second, physiological stress disrupts the coral-symbiont relationship, as seen in bleaching events where corals expel symbionts under heat stress. Competition can also trigger the release of symbionts, disruption N recycling within the holobiont. Typically, corals corals exhibit low d15N values because symbionts retain 14N. However, this expulsion releases the isotopically light N as ammonium into the water column. This ammonium leakage may explain the low d15N values observed in *Ramicrusta* at the active site of coral overgrowth. 
 
 However, even under N saturated states, macroalgae generally assimiliate 14N and 15N in direct proportion (Fong et al., 2004; Fong et al., 2005), thus the difference found in the marginal and non-marginal alga samples collected from *O. annularis* colonies may still suggest N remineralization. There are two plausible causes for this unexpected results. 
-
-- First, physioloigcal stress in coral's leads 
-- First, stark white coral skeleton was observed under all the non-marginal alga samples from *Orbicella* colonies, providing evidence this region of the alga was once overgrowing living tissue. Based on Hollister et al. (2021) measurements for the alga's growth on *O. annularis* (15 mm/year) combined with the linear distance between the marginal and non-marginal samples from this study (mean distance = 25 mm), it is inferred that this area was likely around 1.5 years old. Typically, older portions of algal thalli have lower $\delta^{15}$N values because the slower growth rates (i.e., less N demand) increases the relative N supply, thus selection for N species may be 
-
-based on the fact that the non-marginal samples collected from *Orbicella* colonies were at some point overgrowing living tissue since 
-
-Even though the N signatures were enriched in *R. textilis* tissues extracted from coral colonies, the consistently lower N signatures observed in the alga's apical regions across both substrates 
-Thoughts: 
-- Healthy macroalgae can release isotopically light N compounds when N-saturated; however, the mechanisms governing this process are less understood. 
-- There is a relative increase in the N supply as growth demand decreases. Thus, the non-marginal replicates 
-- 
 
 The striking disparity between the marginal and non-marginal N percentages in the alga overgrowing *O. annularis* colonies, compared to the control substrates, indicates a possible additional influx of nitrogen where the alga is actively encrusting over the coral.
 
