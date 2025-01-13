@@ -302,6 +302,7 @@ ggplot() +
 &nbsp;
 
 The C:N ratio was significantly lower on *O. annularis* colonies (mean C:N ± SEM = 15.21 ± 0.47) when compared to bare substrate (mean C:N ± SEM = 17.72 ± 0.57), with no differences detected for growth region or the interaction of the main effects (Fig. 7). Since the N percentages of the alga's non-marginal samples were consistent across substrate types, the disparity between the C:N was likely driven by higher carbon content observed in the alga growing on bare substrate (mean % C ± SEM = 5.954% ±	0.479) versus the coral colonies (mean % C ± SEM = 5.030% ±	0.331; Fig. 8). In contrast, the C content was fairly similar in the alga's apical region for each substrate (control substrate = 6.861% ± 0.413; coral substrate = 6.9103% ± 0.320; Fig. 8); indicting that the difference in C:N may be attributed to the high N found in the alga encrusting over the *O. annularis*. 
+
 ```{r, echo = FALSE, warning = FALSE}
 
 ggplot() +
